@@ -1,4 +1,4 @@
 # weather-app
 
-Deployed on hHeroku.
+Deployed on Heroku.
 https://ritzy-weather-app.herokuapp.com
