@@ -13,6 +13,8 @@ const forecast = ({latitude, longitude, location} = {}, callback) => {
             const forecast = {
                 summary: response.body.daily.data[0].summary,
                 temperature: 'It is currently ' + response.body.currently.temperature + ' degree Celcius out.',
+                temperatureLow: 'Lowest temperature of the day: ' + response.body.daily.data[0].temperatureLow,
+                temperatureHigh: 'Highest temperature of the day: ' + response.body.daily.data[0].temperatureHigh,
                 chancesOfRain: 'There is a ' + response.body.currently.precipProbability*100 + '% chance of rain',
                 location
             }

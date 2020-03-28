@@ -11,18 +11,20 @@ para2.setAttribute('style', 'white-space: pre;');
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault();     //By default, browser refreshes the page, we don't want that to happen
 
-    para1.textContent = '';
+    para1.textContent = 'Loading...';
     para2.textContent = '';
 
     const address = search.value;
     fetch('/weather?address=' + address).then((response) => {
         response.json().then((data) => {
+
+            para1.textContent = '';
+
             if(data.error) {
                 return para2.textContent = data.error;
             }
-            const forecast = data.summary + '\r\n' + data.temperature + '\r\n' + data.chancesOfRain + '\r\n' + data.location;
+            const forecast = data.summary + '\r\n' + data.temperature + '\r\n' + data.temperatureLow + '\r\n' + data.temperatureHigh + '\r\n' + data.chancesOfRain + '\r\n' + data.location;
             para1.textContent = forecast;
         });
     });
-    
-}) 
+});
